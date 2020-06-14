@@ -1,4 +1,8 @@
-const playAudio = archive => new Audio(`/sounds/${archive}.mp3`).play();
+const playAudio = archive => {
+    const audio = new Audio(`/sounds/${archive}.mp3`);
+    audio.play();
+    setTimeout(() => audio.pause(), 2000);
+};
 
 const isDropImg = event => {
     const split = event.target.id.split('_');
