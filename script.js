@@ -53,6 +53,7 @@ let winCount = 0;
 const onDrop = event => {
     const id = event.dataTransfer.getData('text');
     const elementDrag = document.getElementById(id);
+    const elementDrop = document.getElementById(event.target.id);
     
     if(isDropImg(event)) {
         event.target.style.background = 'transparent';
@@ -60,7 +61,9 @@ const onDrop = event => {
 
     if(id + '_drop' === event.target.id) {
         playAudio(id);
-        event.target.src = `images/${id}.svg`;
+        elementDrop.src = `images/${id}.svg`;
+        elementDrop.classList.add('animal-scale');
+        setTimeout(() => elementDrop.classList.remove('animal-scale'), 1000);
         elementDrag.style.display = 'none';
         winCount++;
         if(winCount === 4) {
