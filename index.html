@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ligar Animais</title>
+    <title>Game Connect Animals</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="blackboard">
         <div class="animals">
-            <img src="images/dog_shadow.svg" class="animal" id="dog__shadow" />
-            <img src="images/cat_shadow.svg" class="animal" id="cat__shadow" />
-            <img src="images/lion_shadow.svg" class="animal" id="lion__shadow" />
-            <img src="images/monkey_shadow.svg" class="animal" id="monkey__shadow" />
+            <img src="images/dog_shadow.svg" draggable="false" class="animal" id="dog_drop" />
+            <img src="images/cat_shadow.svg"  draggable="false" class="animal " id="cat_drop" />
+            <img src="images/lion_shadow.svg"  draggable="false" class="animal" id="lion_drop" />
+            <img src="images/monkey_shadow.svg" draggable="false" class="animal" id="monkey_drop" />
         </div>
         <div class="animals">
-            <img src="images/dog.svg" class="animal" id="dog" />
-            <img src="images/cat.svg" class="animal" id="cat" />
-            <img src="images/lion.svg" class="animal" id="lion" />
-            <img src="images/monkey.svg" class="animal" id="monkey" />
+            <img src="images/dog.svg" draggable="true" class="animal" id="dog" />
+            <img src="images/cat.svg" draggable="true" class="animal" id="cat" />
+            <img src="images/lion.svg" draggable="true" class="animal" id="lion" />
+            <img src="images/monkey.svg" draggable="true" class="animal" id="monkey" />
         </div>
     </div>
     <script src="script.js"></script>
