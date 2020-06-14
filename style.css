@@ -5,6 +5,32 @@ body {
     box-sizing: border-box;
 }
 
+.confetti {
+    color: white;
+    text-transform: uppercase;
+    font-size: 60px;
+    display: none;
+    position: relative;
+}
+   
+i {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    width: 5px;
+    height: 8px;
+    opacity: 0;
+    animation: bang 1.5s ease-out forwards;
+}
+   
+@keyframes bang {
+    from {
+    transform: translate3d(0,0,0);
+    opacity: 1;
+    }
+}
+
 .blackboard {
     background-image: url('/images/blackboard.svg');
     background-repeat: no-repeat;

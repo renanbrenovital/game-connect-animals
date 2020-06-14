@@ -1,8 +1,26 @@
 const playAudio = archive => {
     const audio = new Audio(`/sounds/${archive}.mp3`);
     audio.play();
-    setTimeout(() => audio.pause(), 2000);
+    setTimeout(() => audio.pause(), 4000);
 };
+
+const confetti = () => {
+    let confetti = document.querySelectorAll('.confetti');
+
+    function randomNumber(min, max) { 
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    
+    confetti.forEach(el => {
+     let titleWidth = el.offsetWidth;
+     let totalConfetti = Math.floor(titleWidth / 10);
+     
+     for(var i = 0; i <= totalConfetti; i++) {
+      let confetto = "<i style='transform: translate3d(" + (randomNumber(1, 500) - 250) + "px, " + (randomNumber(1, 200) - 150) + "px, 0) rotate(" + randomNumber(1, 360) + "deg); background: hsla(" + randomNumber(1, 360) +", 100%, 50%, 1);'></i>"
+      el.insertAdjacentHTML("beforeend", confetto);
+     }
+    });
+}
 
 const isDropImg = event => {
     const split = event.target.id.split('_');
@@ -46,7 +64,12 @@ const onDrop = event => {
         elementDrag.style.display = 'none';
         winCount++;
         if(winCount === 4) {
-            document.getElementById('drag').style.display = 'none';
+            setTimeout(() => { 
+                document.getElementById('drag').style.display = 'none';
+                document.getElementById('win').style.display = 'inline';
+                confetti();
+                playAudio('victory');
+            }, 2000);
         }
     }
     else {
