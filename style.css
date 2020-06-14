@@ -29,6 +29,23 @@ body {
 .animal {
     width: 128px;
     height: 128px;
+    cursor: pointer;
+}
+
+@media screen and (orientation: portrait) {
+    body {
+        background-color: #2A3935;
+    }
+    .blackboard {
+        flex-direction: row-reverse;
+        background: none;
+        height: 70vh;
+        margin-top: 10vh;
+    }
+    .animals {
+        flex-direction: column;
+        height: 80vh;
+    }
 }
 
 @media screen and (max-width: 700px) {
