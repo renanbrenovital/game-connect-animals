@@ -26,8 +26,11 @@ const onDragLeave = event => {
     }        
 }
 
+let winCount = 0;
+
 const onDrop = event => {
     const id = event.dataTransfer.getData('text');
+    const elementDrag = document.getElementById(id);
     
     if(isDropImg(event)) {
         event.target.style.background = 'transparent';
@@ -36,12 +39,16 @@ const onDrop = event => {
     if(id + '_drop' === event.target.id) {
         playAudio(id);
         event.target.src = `images/${id}.svg`;
+        elementDrag.style.display = 'none';
+        winCount++;
+        if(winCount === 4) {
+            document.getElementById('drag').style.display = 'none';
+        }
     }
     else {
         playAudio('fail');
-        document.getElementById(id).style.opacity = 1;
-    }
-    
+        elementDrag.style.opacity = 1;
+    }  
 
     event.dataTransfer.clearData();
 }
