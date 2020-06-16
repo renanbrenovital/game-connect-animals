@@ -29,7 +29,7 @@ const isDropImg = event => {
 
 const onDragStart = event => {
     event.dataTransfer.setData('text/plain', event.target.id);
-    event.target.style.opacity = 0.2;
+    event.target.style.opacity = 0;
 }
 
 const onDragOver = event => {
