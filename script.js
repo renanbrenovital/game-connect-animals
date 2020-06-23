@@ -1,5 +1,6 @@
 const playAudio = archive => {
     const audio = new Audio(`/sounds/${archive}.mp3`);
+    audio.currentTime = 0;
     audio.play();
     setTimeout(() => audio.pause(), 4000);
 };
@@ -83,8 +84,13 @@ const onDrop = event => {
     event.dataTransfer.clearData();
 }
 
-document.addEventListener('dragstart', onDragStart);
-document.addEventListener('dragover', onDragOver);
-document.addEventListener('dragenter', onDragEnter);
-document.addEventListener('dragleave', onDragLeave);
-document.addEventListener('drop', onDrop);
+
+function registerEventListeners() {
+    document.addEventListener('dragstart', onDragStart);
+    document.addEventListener('dragover', onDragOver);
+    document.addEventListener('dragenter', onDragEnter);
+    document.addEventListener('dragleave', onDragLeave);
+    document.addEventListener('drop', onDrop);
+}
+
+window.addEventListener('load', registerEventListeners);
